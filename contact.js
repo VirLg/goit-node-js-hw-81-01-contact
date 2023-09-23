@@ -20,11 +20,11 @@ export const removeContact = async contactId => {
   const delIdx = allContacts.findIndex(el => el.id === contactId);
 
   if (delIdx === -1) {
-    
-    return null
+    return null;
   }
-}
-  await fs.writeFile(contactsPath, JSON.stringify(allContacts, null, 2));
+  delEl = allContacts[delIdx];
+  const newArr = allContacts.filter(({ id }) => id !== contactId);
+  await fs.writeFile(contactsPath, JSON.stringify(newArr, null, 2));
 
   return delEl;
 };
