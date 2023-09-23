@@ -33,15 +33,6 @@ const dbContacts = async ({ action, id, name, email, phone }) => {
   }
 };
 
-// dbContacts({ action: 'list' });
-// dbContacts({ action: 'getById', id: 'qdggE76Jtbfd9eWJHrssH' });
-// dbContacts({ action: 'remoteById', id: 'AeHIrLTr6JkxGE6SN-0Rw' });
-// dbContacts({
-//   action: 'add',
-//   name: 'al',
-//   email: 'al@al',
-//   phone: '333',
-// });
 program
   .option('-a --action, <type>')
   .option('-id --id <type>')
@@ -51,7 +42,3 @@ program
 program.parse(process.argv);
 const options = program.opts();
 dbContacts(options);
-
-// console.log(process.argv);
-// const arg = process.argv;
-// console.log('arg', arg);
