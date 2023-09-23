@@ -6,7 +6,7 @@ const dbContacts = async ({ action, id, name, email, phone }) => {
     switch (action) {
       case 'list':
         const allList = await contactsServises.getAllContacts();
-        console.log(allList);
+        console.table(allList);
         break;
       case 'get':
         const byIdItem = await contactsServises.getContactById(id);
@@ -25,10 +25,10 @@ const dbContacts = async ({ action, id, name, email, phone }) => {
         console.log(newContact);
         break;
       default:
-        console.log(`Sorry, dont ${action}.`);
+        console.warn(`Sorry, dont ${action}.`);
     }
   } catch (error) {
-    console.log(error.message);
+    console.warn(error.message);
     throw error;
   }
 };
