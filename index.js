@@ -3,7 +3,7 @@ import * as contactsServises from './contact.js';
 // import writeContactFile from './contact.js';
 // import getContactById from './contact.js';
 
-const dbContacts = async ({ action, id }) => {
+const dbContacts = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case 'list':
       const allList = await contactsServises.getAllContacts();
@@ -15,8 +15,15 @@ const dbContacts = async ({ action, id }) => {
       break;
     case 'remoteById':
       const remoteById = await contactsServises.removeContact(id);
-
       console.log(remoteById);
+      break;
+    case 'add':
+      const newContact = await contactsServises.addContact({
+        name,
+        email,
+        phone,
+      });
+      console.log(newContact);
       break;
     default:
       console.log(`Sorry, dont ${action}.`);
@@ -24,5 +31,11 @@ const dbContacts = async ({ action, id }) => {
 };
 
 // dbContacts({ action: 'list' });
-// dbContacts({ action: 'getById', id: 'AeHIrLTr6JkxGE6SN-0Rw' });
-dbContacts({ action: 'remoteById', id: 'AeHIrLTr6JkxGE6SN-0Rw' });
+// dbContacts({ action: 'getById', id: 'qdggE76Jtbfd9eWJHrssH' });
+// dbContacts({ action: 'remoteById', id: 'AeHIrLTr6JkxGE6SN-0Rw' });
+dbContacts({
+  action: 'add',
+  name: 'al',
+  email: 'al@al',
+  phone: '333',
+});
