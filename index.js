@@ -8,11 +8,11 @@ const dbContacts = async ({ action, id, name, email, phone }) => {
         const allList = await contactsServises.getAllContacts();
         console.log(allList);
         break;
-      case 'getById':
+      case 'get':
         const byIdItem = await contactsServises.getContactById(id);
         console.log(byIdItem);
         break;
-      case 'remoteById':
+      case 'del':
         const remoteById = await contactsServises.removeContact(id);
         console.log(remoteById);
         break;
