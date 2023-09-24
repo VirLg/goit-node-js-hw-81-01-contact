@@ -1,5 +1,5 @@
 import { program } from 'commander';
-import * as contactsServises from './contact.js';
+import * as contactsServises from './contacts.js';
 
 const dbContacts = async ({ action, id, name, email, phone }) => {
   try {
